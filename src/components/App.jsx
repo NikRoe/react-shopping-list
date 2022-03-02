@@ -1,7 +1,15 @@
 import "./App.css";
+import { Items } from "./Items";
+import { Title } from "./Title";
+import { SearchBar } from "./Searchbar";
 
-function App() {
-  return <div className="App">Hello World</div>;
+export function App() {
+  return (
+    <>
+      <Title text="Shopping List" />
+      <Items />
+      <Title text="What do you want to buy?" />
+      <SearchBar></SearchBar>
+    </>
+  );
 }
-
-export default App;

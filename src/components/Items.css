@@ -1,0 +1,17 @@
+.Item__container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.5rem;
+  list-style-type: none;
+  padding: 0.1rem;
+}
+
+.Item__default {
+  background-color: aquamarine;
+  border-radius: 10%;
+  border: black 2px solid;
+  width: auto;
+  padding: 0.5rem;
+  font-size: x-small;
+  text-align: center;
+}
