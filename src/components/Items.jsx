@@ -1,18 +1,8 @@
 import "./Items.css";
-import { useState } from "react";
 
-export function Items({ item }) {
-  const [isHidden, setIsHidden] = useState(false);
-
-  function handeClick() {
-    setIsHidden(!isHidden);
-  }
-
+export function Items({ item, someFunction }) {
   return (
-    <li
-      className={`Item__default ${isHidden ? "Hide" : ""}`}
-      onClick={handeClick}
-    >
+    <li className={`Item__default`} onClick={() => someFunction(item._id)}>
       {item.name.de}
     </li>
   );

@@ -7,7 +7,7 @@ export function RecentlyList() {
     <>
       <ul className="Item__container">
         {items.map(item => (
-          <Items item={item} />
+          <Items item={item} key={item._id} />
         ))}
       </ul>
     </>
