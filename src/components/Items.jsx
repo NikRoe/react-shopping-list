@@ -1,14 +1,19 @@
-import { items } from "../../example-items";
 import "./Items.css";
+import { useState } from "react";
 
-export function Items() {
+export function Items({ item }) {
+  const [isHidden, setIsHidden] = useState(false);
+
+  function handeClick() {
+    setIsHidden(!isHidden);
+  }
+
   return (
-    <>
-      <ul className="Item__container">
-        {items.map(item => (
-          <li className="Item__default">{item.name.de}</li>
-        ))}
-      </ul>
-    </>
+    <li
+      className={`Item__default ${isHidden ? "Hide" : ""}`}
+      onClick={handeClick}
+    >
+      {item.name.de}
+    </li>
   );
 }
