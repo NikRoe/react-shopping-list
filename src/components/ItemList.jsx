@@ -2,19 +2,32 @@ import { items } from "../../example-items";
 import "./ItemList.css";
 import { Items } from "./Items";
 import { useState } from "react";
+import { RecentlyItems } from "./RecentlyItems";
 
 export function ItemList() {
   const [shoppingItems, setShoppingItems] = useState(items);
+  const [recentlyItems, setRecentlyItems] = useState([]);
 
   function handeClick(itemId) {
     setShoppingItems(shoppingItems.filter(item => item._id !== itemId));
+    setRecentlyItems([
+      ...recentlyItems,
+      shoppingItems.filter(item => item._id === itemId),
+    ]);
   }
+
+  console.log(recentlyItems);
 
   return (
     <>
       <ul className="Item__container">
         {shoppingItems.map(item => (
           <Items item={item} someFunction={handeClick} key={item._id} />
+        ))}
+      </ul>
+      <ul className="Item__container">
+        {recentlyItems.map(item => (
+          <RecentlyItems item={item} key={item.name + item._id} />
         ))}
       </ul>
     </>
